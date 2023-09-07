@@ -7,6 +7,8 @@ import (
 type SocketEventHandler func(s *Socket, event string, data []byte) (any, error)
 
 type Socket struct {
+	// UserID is used only for `engine.EmitForUser` method.
+	// If that method is not used - this field can be empty.
 	UserID string
 
 	cl           *engineio.Socket
